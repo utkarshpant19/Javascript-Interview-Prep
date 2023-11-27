@@ -26,3 +26,28 @@ const fun = ()=>{
 console.log(typeof arr); // Object
 console.log(typeof obj); // Object
 console.log(typeof fun); // Function
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Memory
+
+let name = "Utkarsh";
+let newName = name;
+newName ="Roger Federer";
+
+console.log(newName); //Roger Federer
+console.log(name); // Utkarsh (No Change because it is a primitive, stored in Stack)
+
+// Refernce TYpe
+
+let person = {
+    name: 'Utkarsh',
+    email: 'utkarsh@gmail.com'
+}
+
+let person2 = person;
+person2.name = 'roger';
+
+console.log(person2.name);
+console.log(person.name);

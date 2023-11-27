@@ -9,3 +9,7 @@
 # Non Primitives or Reference (Call by Reference):
 
 - Arrays, Objects, Functions
+
+
+# Memory 
+- Primitive(Stack), Non-Primitives(Heap)
