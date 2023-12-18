@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating and Removing DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+
+<script>
+    
+    const addLanguage = (lang)=>{
+        const ul = document.querySelector('ul');
+
+        const listItem = document.createElement('li');
+        listItem.innerHTML = lang; // Expensive, Traverses the whole tree and appends the child
+        ul.appendChild(listItem); 
+    }
+
+    const addLangOptimized = (lang)=>{
+
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(lang));
+
+        document.querySelector('ul').appendChild(li);
+    }
+
+    addLanguage('Java');
+    addLangOptimized('Golang');
+    addLangOptimized('TypeScript');
+
+    // Edit Elements in DOM
+
+    const secondItem = document.querySelector('li:nth-child(2)');
+    // li.innerHTML = 'C#';
+    // document.querySelector('ul').appendChild(li);
+    const newLang = document.createElement('li');
+    newLang.textContent = 'C++';
+    secondItem.replaceWith(newLang); // Replaces the node with specified node
+
+    // Replace Javascript by Typescript
+
+    const firstLang = document.querySelector('li:first-Child');
+    console.log(firstLang);
+    firstLang.outerHTML = `<li>BrainFuck</li>`;
+
+    // Remove Elements from DOM
+
+    // Select the element
+    
+    const li = document.querySelector('li:first-child');
+    li.remove();
+
+
+
+</script>
+</html>
