@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aysnchronous JS</title>
+</head>
+<body>
+
+    <h2>Set timeout Example</h2>
+    <button id="stop">Stop</button>
+    
+</body>
+
+<script>
+    const heading = document.querySelector('h2');
+
+    const changeHeading = ()=>{
+        heading.innerHTML = 'My Name is Utkarsh Pant';
+    }
+    
+   const noChange =  setTimeout(changeHeading, 3000);
+
+   document.getElementById('stop').addEventListener('click', function(){
+    console.log('No Change', noChange);
+    clearTimeout(noChange);
+   });
+   
+   
+</script>
+</html>
