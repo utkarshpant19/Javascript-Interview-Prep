@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <h2>Images</h2>
+
+    <ul id="images">
+        <li>
+            <img src="https://images.pexels.com/photos/19548914/pexels-photo-19548914.jpeg?w=200&h=200&fit=crop&dpr=1" id="escalator" alt="Escalator Image">
+        </li>
+        <li>
+            <img src=" https://images.pexels.com/photos/19548916/pexels-photo-19548916.jpeg?w=200&h=200&fit=crop&dpr=1" id="christmas-tree" alt="Christmas Tree">       
+        </li>
+        <li>
+            <img src="https://images.pexels.com/photos/19414249/pexels-photo-19414249.jpeg?w=200&h=200&fit=crop&dpr=1" id="telephone" alt="Telephone">
+        </li>
+        <li>
+            <a id="google" style="color: #fff;" href="http://google.com" >Google</a>
+        </li>
+    </ul>
+
+</body>
+
+<script>
+    // document.getElementById('telephone').onclick = function(){
+    //     alert('You clicked');
+    // }
+
+    // attachEvent(): For Internet Explorer
+    // on('eventName'): jQuery
+
+    // document.getElementById('telephone').addEventListener('click', function($event){
+    //     console.log($event);
+    // }, false)
+    // Topics: type, timeStamp, defaultPrevent, 
+    // target, toElement, srcElement, currentTarget
+
+    // For Interviews:  clientX, clientY, screenX, screenY
+
+    // altKey, shiftKey, ctrlKey, keyCode
+
+    // document.getElementById('images').addEventListener('click', function(event){
+    //     console.log('Clicked inside ul');
+    // }, false); // true: Event Capturing: Top to Bottom
+
+    // document.getElementById('telephone').addEventListener('click', function(){
+    //     console.log('Telephone Clicked');
+    // }, false)
+
+    // To stop Event Bubbling, we use event.stopPropagation();
+
+    // document.getElementById('escalator').addEventListener('click', function(event){
+    //     console.log('Escalator Clicked');
+    //     event.stopPropagation();
+    // })
+
+    // To stop Default Behaviour of event: event.preventDefault()
+
+    // document.getElementById('google').addEventListener('click', function(){
+
+       
+    //     // event.preventDefault();
+    //     // console.log('Google Clicked');
+    //     // event.stopPropagation();
+
+    // }, true);
+
+    // Remove on clicking Image
+
+    document.querySelector('#images').addEventListener('click', function(event){
+
+        console.log(event.target.tagName);
+
+        console.log(event.target.parentElement);
+        if(event.target.tagName == 'IMG'){
+            const removeIt = event.target.parentElement; // Catches the li which we want to delete
+       
+       // Go to it's parent and delete its child
+       // removeIt.parentElement.removeChild(removeIt);
+
+       // or simply remove that node itself
+       removeIt.remove();
+        }
+
+
+    }, false)
+
+
+
+</script>
+</html>
