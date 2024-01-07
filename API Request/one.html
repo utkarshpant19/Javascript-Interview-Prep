@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHR Request</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: #222; color: #ffffff">
+    <!-- Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+
+    <button id="card-btn">Click me</button>
+
+ 
+  </body>
+
+  <script>
+    const URL = "https://api.github.com/users/utkarshpant19";
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+    };
+    xhr.open("GET", URL);
+    console.log("Hello");
+    xhr.send(); // Request header and status is available
+
+    function createCard(data) {
+      const card = document.createElement("div");
+      card.style.width = "200px";
+      card.style.height = "200px";
+      card.classList.add("card");
+
+      document.body.appendChild(card);
+    }
+
+    document.getElementById("card-btn").addEventListener("click", function () {
+      const data = JSON.parse(xhr.responseText);
+      console.log(data);
+
+      createCard(data);
+    });
+  </script>
+</html>
